@@ -16,12 +16,16 @@ project "spdlog"
     {
         "spdlog/**.h",
         "spdlog/**.cpp",
-        "src/**.cpp"
+        "src/**.cpp",
+        -- external fmt lib because of MSVC 17.7 bug
+        "../fmt/include/**.h",
     }
 
     includedirs
     {
-        "include"
+        "include",
+        -- external fmt lib because of MSVC 17.7 bug
+        "../fmt/include",
     }
     
     filter "system:windows"
